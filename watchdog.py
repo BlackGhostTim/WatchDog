@@ -12,14 +12,20 @@ def read_config(config_file):
     config.read(config_file)
     return config
 
+import os
+
 def start_process(path, args):
+    if not os.path.exists(path):
+        logging.error(f"Executable not found: {path}")
+        return None
     try:
-        process = subprocess.Popen([path] + args.split())
+        process = subprocess.Popen([path] + args.split(), shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         logging.info(f"Process {path} started with PID {process.pid}")
         return process
     except Exception as e:
         logging.error(f"Failed to start process {path}: {e}")
         return None
+
 
 def monitor_processes(processes):
     while True:
