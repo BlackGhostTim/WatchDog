@@ -58,7 +58,7 @@ def start_process(path, args):
         logging.error(f"Failed to start process {path}: {e}")
         return None
 
-def monitor_processes(processes):
+def monitor_processes(processes): # Мониторинг
     """
     Мониторинг запущенных процессов. Если процесс завершается с ошибкой, перезапускает его.
     
