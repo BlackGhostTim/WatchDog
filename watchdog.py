@@ -6,8 +6,7 @@ import shlex
 import time
 
 # Настройка логгера
-logging.basicConfig(filename='watchdog.log', level=logging.DEBUG,
-                    format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename='watchdog.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def read_config(config_file):
     """
